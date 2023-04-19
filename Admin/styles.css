@@ -1,0 +1,20 @@
+.div-centree {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.active {
+    color: #1DC7EA;
+}
+
+
+a {
+    color: #1DC7EA;
+}
+
+.btn-primary{
+    background-color: #1DC7EA;
+    border: #1DC7EA;
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Connexion || Admin </title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+            crossorigin="anonymous">
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="styles.css">
+
+    </head>
+    <body>
+
+        <!-- Barre de navigation -->
+        <nav class="navbar bg-primary navbar-light fixed-top mb-5">
+            <div class="container-fluid">
+                <div class="d-flex">
+                    <button class="navbar-toggler" type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar"
+                        aria-controls="offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand text-light fw-bolder fst-italic
+                        display-6 d-none d-md-flex ms-3" href="index.html">Fitness</a>
+                </div>
+                <div class="d-flex">
+                    <button class="btn btn-transparent" type="button"
+                        title="Abonné(e)s" aria-expanded="false">
+                        <i class="bi bi-people-fill text-light"></i>
+                        <span class="badge bg-danger">
+                            <!-- mettre la valeur du nombre d'abonnement ici -->
+                            <!-- <?php echo $nbreTotalAbonnement; ?> -->
+                            2
+                        </span>
+                    </button>
+                    <div class="dropdown dropstart">
+                        <button class="btn btn-transparent border
+                            border-light text-light dropdown-toggle"
+                            title="Profil" type="button" id="user-dropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle me-1"></i>
+                            <!-- mettre le nom et prénom de l'admin ici -->
+                        </button>
+                        <ul class="dropdown-menu"
+                            aria-labelledby="user-dropdown">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-person-circle me-1"></i>
+                                    Profil
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-danger"
+                                    href="#" onclick="DeconnexionUsers()">
+                                    <i class="bi bi-box-arrow-right me-2"></i>
+                                    Déconnexion
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="offcanvas offcanvas-start bg-primary"
+                    tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title"
+                            id="offcanvasNavbarLabel">
+                            <a class="navbar-brand text-light fw-bolder
+                                fst-italic display-6 d-none d-md-flex ms-3"
+                                href="index.html">Fitness</a>
+                        </h5>
+                        <button type="button" class="btn-close"
+                            data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active text-light"
+                                    aria-current="page" href="index.html">
+                                    <i class="bi bi-speedometer2 me-2"></i>
+                                    Tableau de bord
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light"
+                                    href="abonnements.html">
+                                    <i class="bi bi-calendar3 me-2"></i>
+                                    Abonnements
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light"
+                                    href="ajoutAbonnement.html">
+                                    <i class="bi bi-calendar-plus me-2"></i>
+                                    Ajout Abonnements
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light"
+                                    href="abonne.html">
+                                    <i class="bi bi-people-fill me-2"></i>
+                                    Abonné(e)s
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active"
+                                    href="ajoutAbonne.html">
+                                    <i class="bi bi-person-plus-fill me-2"></i>
+                                    Ajout Abonné(e)
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- /Barre de navigation -->
+
+        <div class="d-flex align-items-center justify-content-center w-100  mt-5">
+            <div class="card w-100 mx-3 border border-0">
+                <div class="card-body">
+                    <h1 class="mb-4">Ajout d'abonné</h1>
+                    <form>
+                    <div class="mb-3">
+                        <label for="nom" class="form-label">Nom</label>
+                        <input type="text" class="form-control" id="nom" placeholder="Entrez votre nom" required>
+                    </div>
+            
+                    <div class="mb-3">
+                        <label for="prenom" class="form-label">Prénom</label>
+                        <input type="text" class="form-control" id="prenom" placeholder="Entrez votre prénom" required>
+                    </div>
+            
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Entrez votre email" required>
+                    </div>
+            
+                    <div class="mb-3">
+                        <label for="telephone" class="form-label">Téléphone</label>
+                        <input type="tel" class="form-control" id="telephone" placeholder="Entrez votre téléphone" required>
+                    </div>
+            
+                    <div class="mb-3">
+                        <label for="photo" class="form-label">Photo</label>
+                        <input type="file" class="form-control" id="photo" accept="image/*" required>
+                    </div>
+            
+                    <button type="submit" class="btn btn-primary w-100">Ajouter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </body>
+    <script>
+    </script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</html>

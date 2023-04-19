@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Connexion || Admin </title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+            crossorigin="anonymous">
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="styles.css">
+
+    </head>
+    <body>
+
+        <!-- Barre de navigation -->
+        <nav class="navbar bg-primary navbar-light fixed-top mb-5">
+            <div class="container-fluid">
+                <div class="d-flex">
+                    <button class="navbar-toggler" type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar"
+                        aria-controls="offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand text-light fw-bolder fst-italic
+                        display-6 d-none d-md-flex ms-3" href="index.html">Fitness</a>
+                </div>
+                <div class="d-flex">
+                    <button class="btn btn-transparent" type="button"
+                        title="Abonné(e)s" aria-expanded="false">
+                        <i class="bi bi-people-fill text-light"></i>
+                        <span class="badge bg-danger">
+                            <!-- mettre la valeur du nombre d'abonnement ici -->
+                            <!-- <?php echo $nbreTotalAbonnement; ?> -->
+                            2
+                        </span>
+                    </button>
+                    <div class="dropdown dropstart">
+                        <button class="btn btn-transparent border
+                            border-light text-light dropdown-toggle"
+                            title="Profil" type="button" id="user-dropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle me-1"></i>
+                            <!-- mettre le nom et prénom de l'admin ici -->
+                        </button>
+                        <ul class="dropdown-menu"
+                            aria-labelledby="user-dropdown">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-person-circle me-1"></i>
+                                    Profil
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-danger"
+                                    href="#" onclick="DeconnexionUsers()">
+                                    <i class="bi bi-box-arrow-right me-2"></i>
+                                    Déconnexion
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="offcanvas offcanvas-start bg-primary"
+                    tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title"
+                            id="offcanvasNavbarLabel">
+                            <a class="navbar-brand text-light fw-bolder
+                                fst-italic display-6 d-none d-md-flex ms-3"
+                                href="index.html">Fitness</a>
+                        </h5>
+                        <button type="button" class="btn-close"
+                            data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active text-light"
+                                    aria-current="page" href="index.html">
+                                    <i class="bi bi-speedometer2 me-2"></i>
+                                    Tableau de bord
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light"
+                                    href="abonnements.html">
+                                    <i class="bi bi-calendar3 me-2"></i>
+                                    Abonnements
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light"
+                                    href="ajoutAbonnement.html">
+                                    <i class="bi bi-calendar-plus me-2"></i>
+                                    Ajout Abonnements
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active"
+                                    href="abonne.html">
+                                    <i class="bi bi-people-fill me-2"></i>
+                                    Abonné(e)s
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light"
+                                    href="ajoutAbonne.html">
+                                    <i class="bi bi-person-plus-fill me-2"></i>
+                                    Ajout Abonné(e)
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- /Barre de navigation -->
+
+        <div class="container mt-5">
+            <h1 class="mt-5">Liste des abonnés</h1>
+            <div class="border border-light mt-2">
+                <!-- Barre de recherche -->
+                <div class="row g-2 mb-2">
+                    <div class="col-md-6">
+                        <form class="mb-3">
+                            <div class="input-group">
+                                <input type="text" id="rechercheAbonné"
+                                    class="form-control" required
+                                    placeholder="Rechercher des abonnés..."
+                                    onchange="">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-md-6 text-end">
+                        <a href="ajoutAbonne.html" class="btn btn-primary">
+                            <i class="fas fa-user-plus me-2"></i>
+                            Ajouter abonné(e)
+                        </a>
+                    </div>
+                </div>
+                <!-- Table des utilisateurs -->
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nom et Prénom</th>
+                                <th>Mail</th>
+                                <th>Téléphone</th>
+                                <th>Inscripteur</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Ajouter d'autres lignes ici en fonction des utilisateurs -->
+                            <tr>
+                                <td><span class='me-2 text-uppercase'>John</span>Doe</td>
+                                <td><a href="mailto:john.doe@example.com" class='text-decoration-none text-dark'>john.doe@example.com</a></td>
+                                <td><a href="tel:123-456-7890" class='text-decoration-none text-dark'>123-456-7890</a></td>
+                                <td>Jane Smith</td>
+                                <td>
+                                    <button class="btn btn-outline-primary mr-2">
+                                    <i class="bi bi-pencil-square"></i> Modifier
+                                    </button>
+                                    <button class="btn btn-outline-success">
+                                    <i class="bi bi-eye-fill"></i> Voir
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                  </div>                  
+                <!-- ... -->
+            </div>
+        </div>
+
+    </body>
+    <script>
+    </script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</html>
